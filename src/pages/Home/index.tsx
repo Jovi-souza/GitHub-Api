@@ -1,6 +1,6 @@
 import { ProjectCard } from "../../components/ProjectCard";
-import { Profile } from "./Profile";
-import { SearchInput } from "./SearchInput";
+import { Profile } from "./components/Profile";
+import { SearchInput } from "./components/SearchInput";
 import { Container, Content } from "./styles";
 
 export function Home() {

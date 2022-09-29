@@ -1,4 +1,4 @@
-import { styled } from "../../../styles/stitches.config";
+import { styled } from "../../../../styles/stitches.config";
 
 export const Container = styled('div', {
   display: 'flex',
@@ -7,6 +7,7 @@ export const Container = styled('div', {
   borderRadius: '10px',
   mt: '-10rem',
   backgroundColor: '$baseProfile',
+  boxShadow: '0px 0px 10px 1px rgba(50, 148, 248, .3)',
 
   '& img': {
     width: '15rem',
@@ -35,10 +36,20 @@ export const Content = styled('div', {
     color: '$blue',
     textTransform: 'uppercase',
     fontWeight: 'bolder',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '.5rem',
 
     position: 'absolute',
-    top: '0',
+    top: '1.25rem',
     right: '0',
+    borderBottom: '1px solid transparent',
+    transition: '.2s'
+  },
+
+  '& span:hover': {
+    borderBottom: '1px solid $blue',
   },
 })
 export const Links = styled('ul', {
@@ -47,6 +58,9 @@ export const Links = styled('ul', {
   color: '$baseSubTitle',
 
   '& li': {
-    fontSize: '1.25rem'
+    fontSize: '1.25rem',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '.5rem',
   }
 })

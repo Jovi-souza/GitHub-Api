@@ -9,6 +9,13 @@ export const Container = styled('div', {
   padding: '2rem',
   borderRadius: '10px',
   position: 'relative',
+  border: '1px solid transparent',
+  cursor: 'pointer',
+  
+  '&:hover': {
+    border: '1px solid $baseSpan',
+    transition: '.3s'
+  },
 
   '& h1': {
     fontSize: '2.25rem',
