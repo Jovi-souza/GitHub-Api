@@ -32,7 +32,7 @@ export const Content = styled('div', {
     fontSize: '1.5rem'
   },
 
-  '& span': {
+  '& a': {
     color: '$blue',
     textTransform: 'uppercase',
     fontWeight: 'bolder',
@@ -48,10 +48,11 @@ export const Content = styled('div', {
     transition: '.2s'
   },
 
-  '& span:hover': {
+  '& a:hover': {
     borderBottom: '1px solid $blue',
   },
 })
+
 export const Links = styled('ul', {
   display: 'flex',
   gap: '1.5rem',

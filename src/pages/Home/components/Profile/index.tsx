@@ -1,18 +1,30 @@
 import { Container, Content, Links } from './styles'
 import { GithubLogo, Buildings, Users, ArrowSquareUpRight } from 'phosphor-react'
+import { ProfileContext } from '../../../../contexts/ProfileContext'
+import { useContext } from 'react'
 
 export function Profile() {
+  const { user } = useContext(ProfileContext)
+  const {
+    avatar_url,
+    bio,
+    followers,
+    login,
+    name,
+    html_url
+  } = user
+
   return (
     <Container>
-      <img src="https://github.com/Jovi-souza.png" alt="" />
+      <img src={avatar_url} alt="" />
       <Content>
-        <h1>Cameron Williamson</h1>
-        <span>github<ArrowSquareUpRight size={16} weight="bold" color='#3294F8' /></span>
-        <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
+        <h1>{name}</h1>
+        <a href={html_url}>github<ArrowSquareUpRight size={16} weight="bold" color='#3294F8' /></a>
+        <p>{bio}</p>
         <Links>
-          <li><GithubLogo size={16} weight="bold" color='#3A536B' />cameronwll</li>
+          <li><GithubLogo size={16} weight="bold" color='#3A536B' />{login}</li>
           <li><Buildings size={16} weight="bold" color='#3A536B' />Rocketseat</li>
-          <li><Users size={16} weight="bold" color='#3A536B' />32 seguidores</li>
+          <li><Users size={16} weight="bold" color='#3A536B' />{followers} seguidores</li>
         </Links>
       </Content>
     </Container>
