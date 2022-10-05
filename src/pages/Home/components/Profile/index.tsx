@@ -19,7 +19,7 @@ export function Profile() {
       <img src={avatar_url} alt="" />
       <Content>
         <h1>{name}</h1>
-        <a href={html_url}>github<ArrowSquareUpRight size={16} weight="bold" color='#3294F8' /></a>
+        <a href={html_url} target='blank' >github<ArrowSquareUpRight size={16} weight="bold" color='#3294F8' /></a>
         <p>{bio}</p>
         <Links>
           <li><GithubLogo size={16} weight="bold" color='#3A536B' />{login}</li>

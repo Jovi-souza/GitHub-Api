@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import { formatDistanceToNowStrict } from 'date-fns'
+import { subDays, formatRelative } from 'date-fns'
 import PtBr from 'date-fns/locale/pt-BR'
 
 interface ProjectCardsProps {
@@ -7,17 +7,17 @@ interface ProjectCardsProps {
   description: string
   created: string
 }
-// formatDistance(subDays(new Date(), 3), new Date(), { addSuffix: true })
+
 export function ProjectCard({ created, title, description }: ProjectCardsProps) {
-  const teste = parseInt(created)
-  console.log(created)
+  const createdToNumber = parseInt(created)
   return (
     <Container>
       <h1>{title}</h1>
-      <span>{formatDistanceToNowStrict(teste, {
-        addSuffix: true,
-        locale: PtBr
-      })}</span>
+      <span>{
+        formatRelative(subDays(new Date(), createdToNumber), new Date(), {
+          locale: PtBr,
+        })
+      }</span>
       <p>{description}</p>
     </Container>
   )

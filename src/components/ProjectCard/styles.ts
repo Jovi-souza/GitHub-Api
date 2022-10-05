@@ -18,7 +18,8 @@ export const Container = styled('div', {
   },
 
   '& h1': {
-    fontSize: '2.25rem',
+    width: '35rem',
+    fontSize: '2rem',
     color: '$basetitle'
   },
 
@@ -31,6 +32,16 @@ export const Container = styled('div', {
   },
 
   '& p': {
-    fontSize: '1.5rem'
+    fontSize: '1.5rem',
+    height: '10rem',
+    overflow: 'hidden',
+    position: 'relatie',
+  },
+
+  '& p:before': {
+    content: '...',
+    position: 'absolute',
+    right: '5.3rem',
+    bottom: '2rem',
   }
 })

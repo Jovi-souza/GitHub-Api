@@ -13,12 +13,12 @@ export function Home() {
       <Profile />
       <SearchInput />
       <Content>
-        {repos.map(({ id, name, description, created_at }) => {
+        {repos.map(({ id, created_at, body, title }) => {
           return (
             <ProjectCard
               key={id}
-              title={name}
-              description={description}
+              title={title}
+              description={body}
               created={created_at}
             />
           )
