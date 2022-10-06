@@ -2,9 +2,10 @@ import { styled } from "../../../../styles/stitches.config";
 
 export const Container = styled('div', {
   padding: '4rem 1rem',
-
+  textOverflow: 'clip',
+  
   '& p': {
-    fontSize: '1.25rem'
+    fontSize: '1.25rem',
   },
 
   '& span': {

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { createContext, ReactNode, useCallback, useEffect, useState } from "react";
 import { UsersApi, SearchApi } from "../lib/axios";
 
@@ -13,17 +12,34 @@ interface userProps {
   repos_url: string
 }
 
+type userType = {
+  login: string
+}
+
 interface reposType {
   id: number,
   title: string,
   body: string,
-  created_at: string
+  created_at: string,
+  comments: number,
+  user: userType
+}
+
+
+interface ProjectCardsType {
+  title: string
+  description: string
+  created: number
+  comments: number
+  user: userType
 }
 
 interface ProfileContextType {
   user: userProps
   repos: reposType[]
+  project: ProjectCardsType
   FetchSearchRepo: (query?: string) => Promise<void>
+  getProject: (selectedProject: ProjectCardsType) => void
 }
 
 interface childrenProps {
@@ -35,6 +51,7 @@ export const ProfileContext = createContext({} as ProfileContextType)
 export function ProfileContextProvider({ children }: childrenProps) {
   const [user, setUser] = useState({} as userProps)
   const [repos, setRepos] = useState<reposType[]>([])
+  const [project, setProject] = useState({} as ProjectCardsType)
 
   async function FetchSearchProfile() {
     const response = await UsersApi.get('rocketseat-education')
@@ -48,6 +65,10 @@ export function ProfileContextProvider({ children }: childrenProps) {
     setRepos(data)
   }
 
+  function getProject(selectedProject: ProjectCardsType) {
+    setProject(selectedProject)
+  }
+
   useEffect(() => {
     FetchSearchProfile()
     FetchSearchRepo()
@@ -58,7 +79,9 @@ export function ProfileContextProvider({ children }: childrenProps) {
       value={{
         user,
         repos,
-        FetchSearchRepo
+        FetchSearchRepo,
+        getProject,
+        project
       }}>
       {children}
     </ProfileContext.Provider>

@@ -6,7 +6,7 @@ export const GlobalCss = globalCss({
     padding: 0,
     boxSizing: 'border-box',
     listStyle: 'none',
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
 
   body: {

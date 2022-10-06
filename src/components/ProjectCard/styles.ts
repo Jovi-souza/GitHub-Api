@@ -12,6 +12,10 @@ export const Container = styled('div', {
   border: '1px solid transparent',
   cursor: 'pointer',
   
+  '& a': {
+    color: '$baseText'
+  },
+  
   '&:hover': {
     border: '1px solid $baseSpan',
     transition: '.3s'
